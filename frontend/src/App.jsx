@@ -9,7 +9,8 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/products')
+    axios.get(import.meta.env.VITE_API_URL + '/products')
+
       .then(res => setProducts(res.data))
       .catch(err => console.error('Error al obtener productos', err));
   }, []);
